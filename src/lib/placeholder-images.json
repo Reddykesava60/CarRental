@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "car_1",
+      "description": "A modern electric sedan.",
+      "imageUrl": "https://images.unsplash.com/photo-1607171028974-319ba56cb013?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxlbGVjdHJpYyUyMGNhcnxlbnwwfHx8fDE3NjE5MTU3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electric car"
+    },
+    {
+      "id": "car_2",
+      "description": "A classic American muscle car.",
+      "imageUrl": "https://images.unsplash.com/photo-1541348263662-e068662d82af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcG9ydHMlMjBjYXJ8ZW58MHx8fHwxNzYxODQ2MDIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sports car"
+    },
+    {
+      "id": "car_3",
+      "description": "A reliable and popular family sedan.",
+      "imageUrl": "https://images.unsplash.com/photo-1674196675678-3b6e4aaa593c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmYW1pbHklMjBzZWRhbnxlbnwwfHx8fDE3NjE5MTU3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "family sedan"
+    },
+    {
+      "id": "car_4",
+      "description": "A compact and fuel-efficient car.",
+      "imageUrl": "https://images.unsplash.com/photo-1760243874929-e724632621d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb21wYWN0JTIwY2FyfGVufDB8fHx8MTc2MTgzMTM0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "compact car"
+    },
+    {
+      "id": "car_5",
+      "description": "A luxury German sports sedan.",
+      "imageUrl": "https://images.unsplash.com/photo-1698816688678-a3f838fd4fe0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBzZWRhbnxlbnwwfHx8fDE3NjE4NTc4OTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury sedan"
+    },
+    {
+      "id": "car_6",
+      "description": "An elegant and comfortable luxury car.",
+      "imageUrl": "https://images.unsplash.com/photo-1580273916550-e323be2ae537?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsdXh1cnklMjBjYXJ8ZW58MHx8fHwxNzYxOTE1NzE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury car"
+    },
+    {
+      "id": "car_7",
+      "description": "A premium sedan with a sporty look.",
+      "imageUrl": "https://images.unsplash.com/photo-1758179128122-6079c9cb3e4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcmVtaXVtJTIwc2VkYW58ZW58MHx8fHwxNzYxOTE1NzE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "premium sedan"
+    },
+    {
+      "id": "car_8",
+      "description": "A versatile and popular hatchback.",
+      "imageUrl": "https://images.unsplash.com/photo-1605270397091-57f50f46413e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxoYXRjaGJhY2slMjBjYXJ8ZW58MHx8fHwxNzYxODM0NTYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hatchback car"
+    }
+  ]
 }

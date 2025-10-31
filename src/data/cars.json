@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Tesla Model S",
+    "model": "2023",
+    "price": 3500,
+    "available": true,
+    "image": "car_1"
+  },
+  {
+    "id": 2,
+    "name": "Ford Mustang",
+    "model": "2022",
+    "price": 2800,
+    "available": true,
+    "image": "car_2"
+  },
+  {
+    "id": 3,
+    "name": "Toyota Camry",
+    "model": "2023",
+    "price": 2200,
+    "available": false,
+    "image": "car_3"
+  },
+  {
+    "id": 4,
+    "name": "Honda Civic",
+    "model": "2021",
+    "price": 1800,
+    "available": true,
+    "image": "car_4"
+  },
+  {
+    "id": 5,
+    "name": "BMW 3 Series",
+    "model": "2022",
+    "price": 3200,
+    "available": true,
+    "image": "car_5"
+  },
+  {
+    "id": 6,
+    "name "Mercedes-Benz C-Class",
+    "model": "2023",
+    "price": 3400,
+    "available": true,
+    "image": "car_6"
+  },
+  {
+    "id": 7,
+    "name": "Audi A4",
+    "model": "2022",
+    "price": 3100,
+    "available": false,
+    "image": "car_7"
+  },
+  {
+    "id": 8,
+    "name": "Volkswagen Golf",
+    "model": "2021",
+    "price": 1900,
+    "available": true,
+    "image": "car_8"
+  }
+]

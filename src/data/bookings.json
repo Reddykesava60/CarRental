@@ -1,0 +1,20 @@
+[
+  {
+    "booking_id": "BK-1698242400000",
+    "car_id": 3,
+    "car_name": "Toyota Camry",
+    "customer_name": "Alice Johnson",
+    "duration_days": 3,
+    "booking_date": "2023-10-25T12:00:00.000Z",
+    "status": "booked"
+  },
+  {
+    "booking_id": "BK-1698328800000",
+    "car_id": 7,
+    "car_name": "Audi A4",
+    "customer_name": "Bob Smith",
+    "duration_days": 5,
+    "booking_date": "2023-10-26T12:00:00.000Z",
+    "status": "booked"
+  }
+]
