@@ -12,7 +12,7 @@
     "name": "Ford Mustang",
     "model": "2022",
     "price": 2800,
-    "available": true,
+    "available": false,
     "image": "car_2"
   },
   {

@@ -51,7 +51,7 @@ export async function bookCar(prevState: any, formData: FormData) {
     await saveBookings(bookings);
 
     revalidatePath('/');
-    revalidatePath('/admin/bookings');
+    revalidatePath('/admin');
 
     return { message: 'Booking successful!', error: false, bookingId: newBooking.booking_id };
   } catch (e) {
@@ -96,8 +96,7 @@ export async function returnCar(prevState: any, formData: FormData) {
 
         revalidatePath('/');
         revalidatePath('/return');
-        revalidatePath('/admin/cars');
-        revalidatePath('/admin/bookings');
+        revalidatePath('/admin');
 
 
         return { message: `Booking ${bookingId} has been marked as returned.`, error: false };
@@ -135,7 +134,7 @@ export async function addCar(prevState: any, formData: FormData) {
 
         cars.push(newCar);
         await saveCars(cars);
-        revalidatePath('/admin/cars');
+        revalidatePath('/admin');
         return { message: `Car "${newCar.name}" added successfully.`, error: false };
     } catch (e) {
         return { message: 'Server error: Could not add car.', error: true };
@@ -162,7 +161,7 @@ export async function updateCar(prevState: any, formData: FormData) {
         cars[carIndex] = { ...cars[carIndex], ...carData };
 
         await saveCars(cars);
-        revalidatePath('/admin/cars');
+        revalidatePath('/admin');
         return { message: `Car "${carData.name}" updated successfully.`, error: false };
     } catch (e) {
         return { message: 'Server error: Could not update car.', error: true };
@@ -182,7 +181,7 @@ export async function toggleCarAvailability(carId: number) {
         car.available = !car.available;
         await saveCars(cars);
 
-        revalidatePath('/admin/cars');
+        revalidatePath('/admin');
         revalidatePath('/');
         return { message: `Availability for "${car.name}" updated.`, error: false };
     } catch (e) {
