@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "name "Mercedes-Benz C-Class",
+    "name": "Mercedes-Benz C-Class",
     "model": "2023",
     "price": 3400,
     "available": true,
