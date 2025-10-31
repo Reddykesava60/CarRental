@@ -34,3 +34,4 @@ This application is built with a modern, robust technology stack, prioritizing d
 - **Server Logic**: Next.js Server Actions
 - **Data Persistence**: Local JSON files (`src/data/`) are used as a mock database.
 - **AI Integration**: [Firebase Genkit](https://firebase.google.com/docs/genkit) for potential AI features.
+# CarRental
