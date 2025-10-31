@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useState, useEffect, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
 import { bookCar } from '@/lib/actions';
 import type { Car } from '@/lib/types';
@@ -42,7 +42,7 @@ function SubmitButton() {
 
 export function BookCarDialog({ car }: BookCarDialogProps) {
   const [open, setOpen] = useState(false);
-  const [state, formAction] = useFormState(bookCar, initialState);
+  const [state, formAction] = useActionState(bookCar, initialState);
   const { toast } = useToast();
 
   useEffect(() => {

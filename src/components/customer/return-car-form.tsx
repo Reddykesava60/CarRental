@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
 import { returnCar } from '@/lib/actions';
 import { Button } from '@/components/ui/button';
@@ -25,7 +25,7 @@ function SubmitButton() {
 }
 
 export function ReturnCarForm() {
-  const [state, formAction] = useFormState(returnCar, initialState);
+  const [state, formAction] = useActionState(returnCar, initialState);
   const { toast } = useToast();
 
   useEffect(() => {

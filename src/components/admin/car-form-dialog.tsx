@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useState, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
 import { addCar, updateCar } from '@/lib/actions';
 import type { Car } from '@/lib/types';
@@ -45,7 +45,7 @@ function SubmitButton({ isEdit }: { isEdit: boolean }) {
 export function CarFormDialog({ open, onOpenChange, car, images }: CarFormDialogProps) {
   const isEdit = !!car;
   const action = isEdit ? updateCar : addCar;
-  const [state, formAction] = useFormState(action, initialState);
+  const [state, formAction] = useActionState(action, initialState);
   const { toast } = useToast();
 
   useEffect(() => {
