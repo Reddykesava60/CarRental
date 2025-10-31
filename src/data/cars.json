@@ -12,7 +12,7 @@
     "name": "Ford Mustang",
     "model": "2022",
     "price": 2800,
-    "available": false,
+    "available": true,
     "image": "car_2"
   },
   {
@@ -20,7 +20,7 @@
     "name": "Toyota Camry",
     "model": "2023",
     "price": 2200,
-    "available": false,
+    "available": true,
     "image": "car_3"
   },
   {
@@ -52,7 +52,7 @@
     "name": "Audi A4",
     "model": "2022",
     "price": 3100,
-    "available": false,
+    "available": true,
     "image": "car_7"
   },
   {

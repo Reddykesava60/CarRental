@@ -1,12 +1,21 @@
 [
   {
+    "booking_id": "BK-1761916487095",
+    "car_id": 6,
+    "car_name": "Mercedes-Benz C-Class",
+    "customer_name": "firstcasr",
+    "duration_days": 2,
+    "booking_date": "2025-10-31T13:14:47.095Z",
+    "status": "returned"
+  },
+  {
     "booking_id": "BK-1761916328893",
     "car_id": 2,
     "car_name": "Ford Mustang",
     "customer_name": "yuuu",
     "duration_days": 1,
     "booking_date": "2025-10-31T13:12:08.893Z",
-    "status": "booked"
+    "status": "returned"
   },
   {
     "booking_id": "BK-1698242400000",
@@ -15,7 +24,7 @@
     "customer_name": "Alice Johnson",
     "duration_days": 3,
     "booking_date": "2023-10-25T12:00:00.000Z",
-    "status": "booked"
+    "status": "returned"
   },
   {
     "booking_id": "BK-1698328800000",
@@ -24,6 +33,6 @@
     "customer_name": "Bob Smith",
     "duration_days": 5,
     "booking_date": "2023-10-26T12:00:00.000Z",
-    "status": "booked"
+    "status": "returned"
   }
 ]

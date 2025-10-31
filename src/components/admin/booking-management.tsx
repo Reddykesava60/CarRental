@@ -16,7 +16,7 @@ TableCell,
 import { Badge } from '@/components/ui/badge';
 import { Button } from '../ui/button';
 import { Loader2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 
 type BookingManagementProps = {
   bookings: Booking[];
@@ -52,11 +52,16 @@ function ReturnButton({ bookingId, status }: { bookingId: string, status: string
 }
 
 export function BookingManagement({ bookings }: BookingManagementProps) {
+  const activeBookings = bookings.filter(b => b.status === 'booked').length;
+  const totalBookings = bookings.length;
 
   return (
     <Card>
         <CardHeader>
             <CardTitle>All Bookings</CardTitle>
+            <CardDescription>
+                {activeBookings} active bookings out of {totalBookings} total.
+            </CardDescription>
         </CardHeader>
         <CardContent>
             <Table>

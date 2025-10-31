@@ -16,7 +16,7 @@ import {
 import { PlusCircle } from 'lucide-react';
 import { CarTableRow } from './car-table-row';
 import { CarFormDialog } from './car-form-dialog';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 
 type CarManagementProps = {
   cars: Car[];
@@ -25,12 +25,19 @@ type CarManagementProps = {
 
 export function CarManagement({ cars, images }: CarManagementProps) {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const availableCarsCount = cars.filter(car => car.available).length;
+  const totalCars = cars.length;
 
   return (
     <Card>
       <CardHeader>
-        <div className="flex justify-between items-center">
-          <CardTitle>All Cars</CardTitle>
+        <div className="flex justify-between items-start">
+            <div>
+                <CardTitle>All Cars</CardTitle>
+                <CardDescription>
+                    {availableCarsCount} of {totalCars} cars available.
+                </CardDescription>
+            </div>
           <Button onClick={() => setDialogOpen(true)}>
             <PlusCircle className="mr-2 h-4 w-4" /> Add New Car
           </Button>
