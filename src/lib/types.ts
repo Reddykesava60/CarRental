@@ -5,6 +5,7 @@ export type Car = {
   price: number; // Price per day
   available: boolean;
   image: string;
+  quantity: number;
 };
 
 export type Booking = {

@@ -4,13 +4,13 @@ import { getPlaceholderImage } from '@/lib/placeholder-images';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
 import { BookCarDialog } from './book-car-dialog';
-import { CarIcon, Gauge, Calendar } from 'lucide-react';
+import { CarIcon, Gauge, Calendar, Package } from 'lucide-react';
+import { Badge } from '../ui/badge';
 
 type CarCardProps = {
   car: Car;
@@ -32,6 +32,9 @@ export function CarCard({ car }: CarCardProps) {
               data-ai-hint={placeholder.imageHint}
             />
           )}
+          <Badge className="absolute top-2 right-2">
+            {car.quantity} Available
+          </Badge>
         </div>
       </CardHeader>
       <CardContent className="flex-1 p-6">

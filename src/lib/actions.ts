@@ -29,11 +29,14 @@ export async function bookCar(prevState: any, formData: FormData) {
     const bookings = await getBookings();
     const carToBook = cars.find(c => c.id === carId);
 
-    if (!carToBook || !carToBook.available) {
+    if (!carToBook || carToBook.quantity < 1) {
       return { message: 'This car is not available for booking.', error: true, bookingId: '' };
     }
 
-    carToBook.available = false;
+    carToBook.quantity -= 1;
+    if (carToBook.quantity === 0) {
+      carToBook.available = false;
+    }
 
     const newBooking: Booking = {
       booking_id: `BK-${Date.now()}`,
@@ -88,7 +91,10 @@ export async function returnCar(prevState: any, formData: FormData) {
         const cars = await getCars();
         const carToMakeAvailable = cars.find(c => c.id === bookingToReturn.car_id);
         if (carToMakeAvailable) {
-            carToMakeAvailable.available = true;
+            carToMakeAvailable.quantity += 1;
+            if (carToMakeAvailable.quantity > 0) {
+                carToMakeAvailable.available = true;
+            }
             await saveCars(cars);
         }
 
@@ -113,6 +119,7 @@ const carSchema = z.object({
   model: z.string().min(4, 'Model year is required'),
   price: z.coerce.number().min(1, 'Price must be a positive number'),
   image: z.string().min(1, 'Image is required'),
+  quantity: z.coerce.number().min(0, "Quantity can't be negative"),
 });
 
 
@@ -120,7 +127,8 @@ export async function addCar(prevState: any, formData: FormData) {
     const validatedFields = carSchema.safeParse(Object.fromEntries(formData.entries()));
 
     if (!validatedFields.success) {
-        return { message: 'Invalid car data.', error: true };
+        const firstError = Object.values(validatedFields.error.flatten().fieldErrors)[0]?.[0];
+        return { message: firstError || 'Invalid car data.', error: true };
     }
 
     try {
@@ -129,7 +137,7 @@ export async function addCar(prevState: any, formData: FormData) {
         const newCar: Car = {
             ...validatedFields.data,
             id: newId,
-            available: true,
+            available: validatedFields.data.quantity > 0,
         };
 
         cars.push(newCar);
@@ -146,7 +154,8 @@ export async function updateCar(prevState: any, formData: FormData) {
     const validatedFields = carSchema.safeParse(Object.fromEntries(formData.entries()));
 
     if (!validatedFields.success || !validatedFields.data.id) {
-        return { message: 'Invalid car data.', error: true };
+        const firstError = Object.values(validatedFields.error.flatten().fieldErrors)[0]?.[0];
+        return { message: firstError || 'Invalid car data.', error: true };
     }
     const { id, ...carData } = validatedFields.data;
 
@@ -158,10 +167,15 @@ export async function updateCar(prevState: any, formData: FormData) {
             return { message: 'Car not found.', error: true };
         }
         
-        cars[carIndex] = { ...cars[carIndex], ...carData };
+        cars[carIndex] = { 
+            ...cars[carIndex], 
+            ...carData,
+            available: carData.quantity > 0,
+        };
 
         await saveCars(cars);
         revalidatePath('/admin');
+        revalidatePath('/');
         return { message: `Car "${carData.name}" updated successfully.`, error: false };
     } catch (e) {
         return { message: 'Server error: Could not update car.', error: true };
@@ -178,7 +192,12 @@ export async function toggleCarAvailability(carId: number) {
             return { message: 'Car not found.', error: true };
         }
 
-        car.available = !car.available;
+        if (car.quantity === 0) {
+            car.available = false;
+        } else {
+            car.available = !car.available;
+        }
+        
         await saveCars(cars);
 
         revalidatePath('/admin');

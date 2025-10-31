@@ -55,16 +55,19 @@ export function CarTableRow({ car, images }: CarTableRowProps) {
       <TableCell>{car.model}</TableCell>
       <TableCell>₹{car.price.toLocaleString()}</TableCell>
       <TableCell>
-        <Badge variant={car.available ? 'default' : 'secondary'}>
-          {car.available ? 'Available' : 'Booked'}
-        </Badge>
+        <div className="flex flex-col gap-1">
+          <Badge variant={car.available ? 'default' : 'secondary'}>
+            {car.available ? 'Available' : 'Unavailable'}
+          </Badge>
+          <span className="text-xs text-muted-foreground">({car.quantity} in stock)</span>
+        </div>
       </TableCell>
       <TableCell className="text-right space-x-2">
         <div className="flex items-center justify-end gap-2">
             <Switch
               checked={car.available}
               onCheckedChange={handleToggleAvailability}
-              disabled={isPending}
+              disabled={isPending || car.quantity === 0}
               aria-label="Toggle car availability"
             />
             <Button variant="ghost" size="icon" onClick={() => setDialogOpen(true)}>

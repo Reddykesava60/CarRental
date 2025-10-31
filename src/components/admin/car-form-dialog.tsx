@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState, useActionState } from 'react';
+import { useEffect } from 'react';
+import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
 import { addCar, updateCar } from '@/lib/actions';
@@ -60,6 +61,14 @@ export function CarFormDialog({ open, onOpenChange, car, images }: CarFormDialog
       }
     }
   }, [state, toast, onOpenChange]);
+  
+  // Reset state when dialog closes
+  useEffect(() => {
+    if (!open) {
+      state.message = '';
+      state.error = false;
+    }
+  }, [open, state]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -84,6 +93,10 @@ export function CarFormDialog({ open, onOpenChange, car, images }: CarFormDialog
             <div className="space-y-2">
               <Label htmlFor="price">Price / Day</Label>
               <Input id="price" name="price" type="number" defaultValue={car?.price} required />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="quantity">Quantity</Label>
+              <Input id="quantity" name="quantity" type="number" defaultValue={car?.quantity ?? 1} required />
             </div>
             <div className="space-y-2">
               <Label htmlFor="image">Car Image</Label>

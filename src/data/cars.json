@@ -5,7 +5,8 @@
     "model": "2023",
     "price": 3500,
     "available": true,
-    "image": "car_1"
+    "image": "car_1",
+    "quantity": 3
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "model": "2022",
     "price": 2800,
     "available": true,
-    "image": "car_2"
+    "image": "car_2",
+    "quantity": 2
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "model": "2023",
     "price": 2200,
     "available": true,
-    "image": "car_3"
+    "image": "car_3",
+    "quantity": 5
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "model": "2021",
     "price": 1800,
     "available": true,
-    "image": "car_4"
+    "image": "car_4",
+    "quantity": 4
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "model": "2022",
     "price": 3200,
     "available": true,
-    "image": "car_5"
+    "image": "car_5",
+    "quantity": 3
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "model": "2023",
     "price": 3400,
     "available": true,
-    "image": "car_6"
+    "image": "car_6",
+    "quantity": 2
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "model": "2022",
     "price": 3100,
     "available": true,
-    "image": "car_7"
+    "image": "car_7",
+    "quantity": 0
   },
   {
     "id": 8,
@@ -61,6 +68,7 @@
     "model": "2021",
     "price": 1900,
     "available": true,
-    "image": "car_8"
+    "image": "car_8",
+    "quantity": 6
   }
 ]
