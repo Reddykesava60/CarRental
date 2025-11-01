@@ -1,13 +1,34 @@
+'use server';
 import fs from 'fs/promises';
 import path from 'path';
 import type { Car, Booking } from './types';
 
-const dataDirectory = path.join(process.cwd(), 'src', 'data');
+// In a serverless environment, only the /tmp directory is writable.
+// For local development, we'll fall back to the original src/data directory.
+const dataDirectory = process.env.VERCEL ? path.join('/tmp') : path.join(process.cwd(), 'src', 'data');
 const carsFilePath = path.join(dataDirectory, 'cars.json');
 const bookingsFilePath = path.join(dataDirectory, 'bookings.json');
 
-async function readJsonFile<T>(filePath: string): Promise<T> {
+// Function to initialize data if it doesn't exist in /tmp
+async function initializeData<T>(filePath: string, sourcePath: string): Promise<T> {
   try {
+    // Check if the file exists in the destination
+    await fs.access(filePath);
+  } catch (e) {
+    // If not, copy it from the source
+    const sourceContent = await fs.readFile(sourcePath, 'utf8');
+    await fs.mkdir(path.dirname(filePath), { recursive: true });
+    await fs.writeFile(filePath, sourceContent, 'utf8');
+  }
+  const fileContent = await fs.readFile(filePath, 'utf8');
+  return JSON.parse(fileContent);
+}
+
+async function readJsonFile<T>(filePath: string, sourcePath: string): Promise<T> {
+  try {
+     if (process.env.VERCEL) {
+      return await initializeData<T>(filePath, sourcePath);
+    }
     const fileContent = await fs.readFile(filePath, 'utf8');
     return JSON.parse(fileContent);
   } catch (error) {
@@ -22,12 +43,15 @@ async function readJsonFile<T>(filePath: string): Promise<T> {
 }
 
 async function writeJsonFile<T>(filePath: string, data: T): Promise<void> {
-  await fs.mkdir(dataDirectory, { recursive: true });
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
   await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf8');
 }
 
+const localCarsPath = path.join(process.cwd(), 'src', 'data', 'cars.json');
+const localBookingsPath = path.join(process.cwd(), 'src', 'data', 'bookings.json');
+
 export async function getCars(): Promise<Car[]> {
-  return readJsonFile<Car[]>(carsFilePath);
+  return readJsonFile<Car[]>(carsFilePath, localCarsPath);
 }
 
 export async function getAvailableCars(): Promise<Car[]> {
@@ -45,7 +69,7 @@ export async function saveCars(cars: Car[]): Promise<void> {
 }
 
 export async function getBookings(): Promise<Booking[]> {
-  return readJsonFile<Booking[]>(bookingsFilePath);
+  return readJsonFile<Booking[]>(bookingsFilePath, localBookingsPath);
 }
 
 export async function getBookingById(bookingId: string): Promise<Booking | undefined> {
