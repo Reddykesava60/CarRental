@@ -1,8 +1,7 @@
 # Car Rental Simplified
 
 This project is a modern, full-stack web application designed as a simplified prototype for a car rental service. It provides a seamless user experience for customers to browse and book cars, and a comprehensive dashboard for administrators to manage the vehicle fleet and view all rental bookings.
-Demo link: https://vercel.com/reddy-kesavas-projects/carrental/DzkxxHnTWSuz8y2upKN4KKeyrfmp
-
+Demo link:https://carrental-eta.vercel.app/
 ## Key Features
 
 ### Customer-Facing Interface
